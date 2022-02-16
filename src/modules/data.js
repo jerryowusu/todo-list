@@ -20,7 +20,7 @@ const todoData = [
     index: 1,
   },
   {
-    description: 'Doctor"s Appointment',
+    description: 'Hospital Appointment',
     completed: false,
     index: 1,
   },
