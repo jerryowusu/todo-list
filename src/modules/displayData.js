@@ -1,46 +1,64 @@
-import Tasks from './data.js';
-import updateStatus from './tasksUpdate.js';
+import TodoList from './taskClass.js';
 
-const task = new Tasks();
+const todo = new TodoList();
 const listSection = document.querySelector('.list-section');
 
-const displayTodo = () => {
-  listSection.innerHTML = '';
-  for (let i = 0; i < task.list.length; i += 1) {
-    const listItem = document.createElement('li');
-    listItem.classList.add('todo');
-    listItem.innerHTML = `
-     <div class="checkbox" id="checkbox${i}"></div>
-     <i class="checkmark fa fa-check-circle " id="checkmark${i}">     
-      <input type="text" class="task-description" id="description${i}">
-      <i class="remove fa fa-trash-o" id="remove${i}">  
-    `;
-    listSection.appendChild(listItem);
-    const checkbox = document.getElementById(`checkbox${i}`);
-    const checkmark = document.getElementById(`checkmark${i}`);
-    const text = document.getElementById(`description${i}`);
-    const elementArray = [checkmark, checkbox, text];
+const createTodo = () => {
+  listSection.replaceChildren();
+  if (todo.allTodos.length > 0) {
+    listSection.style.display = 'block';
+    const listContainer = document.createElement('ul');
+    listContainer.className = 'allTodos';
+    listSection.appendChild(listContainer);
+    todo.allTodos.map((a) => {
+      const list = document.createElement('li');
+      list.className = 'todo';
 
-    updateStatus(elementArray, task.list[i], i);
-    const remove = document.getElementById(`remove${i}`);
-    const input = document.getElementById(`description${i}`);
-    input.value = task.list[i].description;
+      const descrptContainer = document.createElement('div');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = 'checkbox';
+      if (a.completed === true) { checkbox.checked = 'checked'; }
 
-    remove.addEventListener('click', () => {
-      task.remove(i);
-      task.populateStorage();
-      displayTodo();
-    });
-
-    input.addEventListener('change', () => {
-      const tasks = {
-        description: input.value,
-        completed: task.list[i].completed,
-        index: task.list[i].index,
+      checkbox.onclick = (e) => {
+        todo.completedTodo(e.target.checked, a.index);
       };
-      task.edit(i, tasks);
+
+      descrptContainer.appendChild(checkbox);
+
+      const descrpt = document.createElement('p');
+      descrpt.id = 'task-description';
+      descrpt.textContent = a.description;
+      descrptContainer.appendChild(descrpt);
+      list.appendChild(descrptContainer);
+
+      const dragIcon = document.createElement('i');
+      dragIcon.className = 'fa fa-ellipsis-v';
+      list.appendChild(dragIcon);
+
+      const deleteIcon = document.createElement('i');
+      deleteIcon.className = 'fa fa-times';
+      deleteIcon.id = a.index;
+
+      list.onclick = () => {
+        descrpt.contentEditable = 'true';
+        list.style.backgroundColor = 'greenyellow';
+        list.appendChild(deleteIcon);
+        dragIcon.style.display = 'none';
+        descrpt.addEventListener('keydown', () => {
+          todo.editTodo(descrpt.innerHTML, a.index);
+        });
+      };
+      deleteIcon.onclick = () => {
+        todo.deleteTodo(a.index);
+        todo.saveTodo();
+        createTodo();
+      };
+      listContainer.append(list);
+      return list;
     });
+    listSection.appendChild(listContainer);
   }
 };
 
-export { task, displayTodo };
+export { createTodo, todo };

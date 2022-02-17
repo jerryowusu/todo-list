@@ -7,23 +7,23 @@
     <script src="https://kit.fontawesome.com/2b1476549e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header></header>
     <main>
-        <ul class="list-body">
+        <ul class="to-do-list">
             <li class="title">
-                <h2>Today's To Do</h2>
-                <i class="refresh fas fa-sync-alt"></i>
+                <h3>Today's To Do</h3>
+                <i class="fas fa-sync-alt"></i>
             </li>
-            <li class="type-list">
-                <input class="text" type="text" placeholder="Add to your list..." required>
-                <i class="add fa fa-share" aria-hidden="true"></i>
+            <li class="add-to-do">
+                <form action="#" id="form">
+                  <input type="text" placeholder="Add to your list..." id="new-todo" required>
+                  <button type="submit"><i class="fa fa-share" id="add"></i></button>
+                </form>
             </li>
             <li class="list-section"></li>
-            <li class="clear-completed">
+            <li id="clear-completed">
                 <button type="button" id="clear">Clear all completed</button>
             </li>
-        </ul>
-    </main>
-    <footer></footer>
+          </ul>
+      </main>
 </body>
 </html>
