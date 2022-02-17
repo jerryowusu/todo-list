@@ -1,27 +1,49 @@
-import todoData from './data.js';
+import Tasks from './data.js';
+import updateStatus from './tasksUpdate.js';
 
-export const listTodo = document.querySelector('.list-section');
-const todoContainer = document.createElement('ul');
-todoContainer.className = 'todo-container';
-listTodo.appendChild(todoContainer);
-
+const task = new Tasks();
+const listSection = document.querySelector('.list-section');
+console.log(task.list)
 const displayTodo = () => {
-  if (todoData.length !== 0) {
-    listTodo.style.display = 'block';
-    todoData.map((data) => {
-      const list = document.createElement('li');
-      list.className = 'todo';
-      list.innerHTML = `
-       <div>
-         <input type="checkbox" id="checkbox">
-       </div>
-       <p>${data.description}</p></div>
-       <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-      `;
-      todoContainer.append(list);
-      return list;
+  listSection.innerHTML = '';
+  for (let i = 0; i < task.list.length; i += 1) {
+    const listItem = document.createElement('li');
+    listItem.classList.add('todo');
+    listItem.innerHTML = `
+     <div class="checkbox" id="checkbox${i}"></div>
+     <i class="checkmark fa fa-check-circle " id="checkmark${i}">
+     
+      <input type="text" class="task-description" id="description${i}">
+      <i class="remove fa fa-trash-o" id="remove${i}">
+      <i class="dots fa fa-ellipsis-v" id="dots${i}">
+    </div>
+    `;
+    listSection.appendChild(listItem);
+    const checkbox = document.getElementById(`checkbox${i}`);
+    const checkmark = document.getElementById(`checkmark${i}`);
+    const text = document.getElementById(`description${i}`);
+    const elementArray = [checkmark, checkbox, text];
+
+    updateStatus(elementArray, task.list[i], i);
+    const remove = document.getElementById(`remove${i}`);
+    const input = document.getElementById(`description${i}`);
+    input.value = task.list[i].description;
+
+    remove.addEventListener('click', () => {
+      task.remove(i);
+      task.populateStorage();
+      displayTodo();
+    });
+
+    input.addEventListener('change', () => {
+      const task = {
+        description: input.value,
+        completed: task.list[i].completed,
+        index: task.list[i].index,
+      };
+      task.edit(i, task);
     });
   }
 };
 
-export default displayTodo;
+export { task, displayTodo };

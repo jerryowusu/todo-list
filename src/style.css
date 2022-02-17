@@ -70,11 +70,11 @@ li {
 
 .todo {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgb(177, 168, 168);
-  padding: 1.2rem;
-  flex: 1;
+  justify-content: space-around;
+  /* align-items: center; */
+  /* border-bottom: 1px solid rgb(177, 168, 168); */
+  /* padding: 1.2rem; */
+  /* flex: 1; */
 }
 
 .todo p {
