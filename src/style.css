@@ -70,18 +70,24 @@ li {
 
 .todo {
   display: flex;
-  justify-content: space-around;
-  /* align-items: center; */
-  /* border-bottom: 1px solid rgb(177, 168, 168); */
-  /* padding: 1.2rem; */
-  /* flex: 1; */
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(177, 168, 168);
+  padding: 1.2rem;
+  flex: 1;
 }
 
-.todo p {
+.task-description {
   flex-basis: 90%;
   margin: 0;
   color: #000;
   font-size: 1.5rem;
+  border: 1px hidden;
+  background-color: inherit;
+  margin-left: 5rem;
+}
+
+.remove {
+  margin-left: 4rem;
 }
 
 .clear-completed {

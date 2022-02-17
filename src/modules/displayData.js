@@ -3,7 +3,7 @@ import updateStatus from './tasksUpdate.js';
 
 const task = new Tasks();
 const listSection = document.querySelector('.list-section');
-console.log(task.list)
+
 const displayTodo = () => {
   listSection.innerHTML = '';
   for (let i = 0; i < task.list.length; i += 1) {
@@ -11,12 +11,9 @@ const displayTodo = () => {
     listItem.classList.add('todo');
     listItem.innerHTML = `
      <div class="checkbox" id="checkbox${i}"></div>
-     <i class="checkmark fa fa-check-circle " id="checkmark${i}">
-     
+     <i class="checkmark fa fa-check-circle " id="checkmark${i}">     
       <input type="text" class="task-description" id="description${i}">
-      <i class="remove fa fa-trash-o" id="remove${i}">
-      <i class="dots fa fa-ellipsis-v" id="dots${i}">
-    </div>
+      <i class="remove fa fa-trash-o" id="remove${i}">  
     `;
     listSection.appendChild(listItem);
     const checkbox = document.getElementById(`checkbox${i}`);
@@ -36,12 +33,12 @@ const displayTodo = () => {
     });
 
     input.addEventListener('change', () => {
-      const task = {
+      const tasks = {
         description: input.value,
         completed: task.list[i].completed,
         index: task.list[i].index,
       };
-      task.edit(i, task);
+      task.edit(i, tasks);
     });
   }
 };
