@@ -46,7 +46,7 @@ export const createTodo = () => {
         list.appendChild(deleteIcon);
         dragIcon.style.display = 'none';
         descrpt.addEventListener('keydown', () => {
-          const newValue = descrpt.innerHTML;
+          const newValue = descrpt.innerHTML.trim();
           todo.editTodo(newValue, a.index);
         });
       };
