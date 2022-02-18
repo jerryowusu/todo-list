@@ -49,6 +49,7 @@ const createTodo = () => {
           todo.editTodo(descrpt.innerHTML, a.index);
         });
       };
+
       deleteIcon.onclick = () => {
         todo.deleteTodo(a.index);
         todo.saveTodo();

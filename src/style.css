@@ -25,10 +25,6 @@ li {
   color: rgb(168, 164, 164);
 }
 
-.todo-container {
-  padding: 0;
-}
-
 .title,
 .type-list {
   display: flex;
@@ -37,12 +33,29 @@ li {
   border-bottom: 1px solid rgb(177, 168, 168);
 }
 
+#form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .text {
   border: 1px hidden;
   flex-basis: 90%;
   font-size: 1.5rem;
   outline: none;
   color: #000;
+}
+
+.add-icon {
+  font-size: 1.2rem;
+}
+
+.add-button {
+  right: 100px;
+  background-color: inherit;
+  border: 1px hidden;
 }
 
 .list-body input[placeholder] {
@@ -71,26 +84,34 @@ li {
 .todo {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid rgb(177, 168, 168);
-  padding: 1.2rem;
+  padding: 1.7rem;
+  height: 50px;
   flex: 1;
+  margin-left: -60px;
 }
 
-.task-description {
-  flex-basis: 90%;
-  margin: 0;
+.todo::hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+#task-description {
+  margin: -20px;
   color: #000;
   font-size: 1.5rem;
-  border: 1px hidden;
   background-color: inherit;
   margin-left: 5rem;
+  outline: none;
 }
+
 
 .remove {
   margin-left: 4rem;
 }
 
-.clear-completed {
+#clear-completed {
   justify-content: center;
   align-items: center;
   margin: auto;
