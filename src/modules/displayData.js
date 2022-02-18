@@ -42,9 +42,9 @@ export const createTodo = () => {
 
       list.onclick = () => {
         descrpt.contentEditable = 'true';
+        dragIcon.style.display = 'none';
         list.style.backgroundColor = 'greenyellow';
         list.appendChild(deleteIcon);
-        dragIcon.style.display = 'none';
         descrpt.addEventListener('keydown', () => {
           const newValue = descrpt.innerHTML.trim();
           todo.editTodo(newValue, a.index);
