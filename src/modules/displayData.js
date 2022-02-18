@@ -1,9 +1,9 @@
 import TodoList from './taskClass.js';
 
-const todo = new TodoList();
+export const todo = new TodoList();
 const listSection = document.querySelector('.list-section');
 
-const createTodo = () => {
+export const createTodo = () => {
   listSection.replaceChildren();
   if (todo.allTodos.length > 0) {
     listSection.style.display = 'block';
@@ -61,5 +61,3 @@ const createTodo = () => {
     listSection.appendChild(listContainer);
   }
 };
-
-export { createTodo, todo };
