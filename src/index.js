@@ -1,6 +1,6 @@
 import './style.css';
-import showData from './modules/showData.js';
+import populate from './modules/populateList.js';
+import { getAddedTodos, form } from './modules/newtodo.js';
 
-window.onload = () => {
-  showData();
-};
+populate();
+form.addEventListener('submit', getAddedTodos);
