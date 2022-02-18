@@ -25,6 +25,9 @@ A Web Browser (preferably Google Chrome)
 
 - Clone the GitHub Repository
 - Install npm package manager
+- npm install webpack-dev-server --save-dev
+- npm run build
+- npm start
 
 ### Usage
 Open index.html in Chrome
