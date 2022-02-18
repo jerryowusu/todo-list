@@ -30,9 +30,19 @@ export default class TodoList {
     this.allTodos = JSON.parse(localStorage.getItem('todos'));
   }
 
-  editTodo(newValue, index) {
-    this.allTodos[index - 1].description = newValue;
-    this.saveTodo();
+  editTodo() {
+    document.querySelectorAll('.text').forEach((b) => {
+      b.addEventListener('click', () => {
+        b.readOnly = false;
+        b.focus();
+      });
+      b.addEventListener('change', () => {
+        b.readOnly = true;
+        const task = this.allTodos.find((t) => t.index === Number(b.index));
+        task.name = b.value.trim();
+        this.saveTodo();
+      });
+    });
   }
 
   completedTodo(status, index) {
