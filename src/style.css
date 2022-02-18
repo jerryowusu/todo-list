@@ -94,7 +94,7 @@ li {
 
 .todo:hover {
   cursor: pointer;
-  background-color: red;
+  background-color: rgb(0, 183, 255);
 }
 
 #task-description {
