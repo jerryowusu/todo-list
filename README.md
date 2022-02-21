@@ -2,7 +2,7 @@
 This "To-do-list" app is a simple web application that displays a list of task and allows you to add and remove task from that list. it is built with the latest technology including but not limited to HTML, CSS, JavaScript and  webpack to manipulate DOM.
 
 ## Live Demo
-https://jerryowusu.github.io/todo-list/
+[Todo list](https://jerryowusu.github.io/todo-list/)
 
 ![alt text](./src/images/todo-list.png)
 
