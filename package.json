@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "lodash": "^4.17.21"
   },
