@@ -21,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/jerryowusu/To-Do-List/issues"
   },
-  "homepage": "https://github.com/jerryowusu/To-Do-List#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.6.0",
