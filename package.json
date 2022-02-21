@@ -1,5 +1,6 @@
 {
   "name": "to-do-list",
+  "homepage": "https://jerryowusu.github.io/todo-list/",
   "version": "1.0.0",
   "description": "I created a JavaScript ES6 ToDo list by using webpack to bundle JavaScript.",
   "private": "true",
