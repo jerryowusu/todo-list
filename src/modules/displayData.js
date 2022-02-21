@@ -2,7 +2,6 @@ import TodoList from './taskClass.js';
 
 export const todo = new TodoList();
 const listSection = document.querySelector('.list-section');
-
 export const createTodo = () => {
   listSection.replaceChildren();
   if (todo.allTodos.length > 0) {
