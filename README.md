@@ -53,7 +53,7 @@ Feel free to check the [issues page](https://github.com/jerryowusu/todo-list/iss
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give a star ⭐️ if you like this project!
 
 ## 📝 License
 
